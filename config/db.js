@@ -22,35 +22,6 @@ module.exports = connectToDb
 
 
 
-const MongoClient = require('mongodb').MongoClient;
-
-const client = new MongoClient('mongodb://localhost:27017');
-
-client.connect(async (err, db) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-
-  const collection = db.collection('users');
-
-  const document = { email: 'example@email.com' };
-
-  const result = await collection.insertOne(document);
-
-  if (result.insertedCount === 1) {
-    console.log('Document inserted successfully!');
-  } else {
-    console.log('Error inserting document.');
-  }
-
-  client.close();
-});
-
-
-
-
-
 
 // const mongoose = require("mongoose");
 
